@@ -35,13 +35,13 @@ TEST_BATCH_SIZE = 1
 # 모델 함수
 def create_model( model_size ):
     my_new_model = Sequential()
-    if  model_size == 'L':
+    if  model_size == 'L': ## resnet50 모델을 사용
         resnet_weights_path = '../input/resnet50/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'
         resnet = ResNet50(include_top=False, pooling='avg', weights=resnet_weights_path)
         #resnet.summary()
         my_new_model.add(resnet)
         my_new_model.layers[0].trainable = False
-    else:
+    else: ## Vgg16 모델 
         vgg_weights_path = '../input/vgg16/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
         vgg= VGG16(include_top=False, weights=vgg_weights_path ) 
         vgg.summary()

@@ -50,7 +50,7 @@ def create_model( model_size ):
         my_new_model.layers[0].trainable = False
         my_new_model.layers[1].trainable = False
         
-    my_new_model.add(Dense(NUM_CLASSES, activation='softmax'))
+    my_new_model.add(Dense(NUM_CLASSES, activation='softmax')) # 손실함수 softmax 사용
    
     # Say no to train first layer (ResNet) model. It is already trained
     
